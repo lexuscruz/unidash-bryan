@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UniDash - dashboard académico con datos mock">
+  <title>UniDash - Dashboard</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="./css/theme.css">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark" aria-hidden="true">▥</div>
+      <div>
+        <p class="brand-title">UniDash</p>
+        <p class="brand-subtitle">Datos Mock</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Navegación principal">
+      <button class="nav-item active" data-view="dashboard">
+        <span>⌂</span> Dashboard
+      </button>
+      <button class="nav-item" data-view="tasks">
+        <span>✓</span> Tareas
+      </button>
+      <button class="nav-item" data-view="finance">
+        <span>$</span> Finanzas
+      </button>
+      <button class="nav-item" data-view="analytics">
+        <span>⌁</span> Analítica
+      </button>
+      <button class="nav-item" data-view="currency">
+        <span>↔</span> Divisas
+      </button>
+      <button class="nav-item" data-view="news">
+        <span>◫</span> Noticias
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <p>HTML5 · CSS3 · JavaScript</p>
+      <p>TailwindCSS · Chart.js</p>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button id="menu-button" class="icon-button" aria-label="Abrir menú">☰</button>
+      <div class="topbar-copy">
+        <p class="topbar-kicker">Panel personal</p>
+        <h1 id="page-title">Dashboard</h1>
+      </div>
+      <div class="profile-chip">
+        <div class="avatar">B</div>
+        <div>
+          <strong>Bryan</strong>
+          <small>Estudiante</small>
+        </div>
+      </div>
+    </header>
+
+    <section id="view-dashboard" class="view-section active">
+      <div class="hero-panel">
+        <div>
+          <p class="eyebrow">Tu centro de control</p>
+          <h2 class="hero-title">Organiza tu día, controla tus finanzas y consulta datos del mundo en tiempo real</h2>
+          <p class="hero-copy">Todo lo más importante en un solo dashboard.</p>
+        </div>
+
+        <div class="weather-mini-card">
+          <span id="weather-icon" class="weather-icon">☁</span>
+          <div>
+            <p id="weather-temperature" class="weather-temperature">22°C</p>
+            <p id="weather-description" class="weather-description">Clima aproximado</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric-card">
+          <p class="metric-label">Ingresos</p>
+          <p class="metric-value">$8,400</p>
+          <p class="metric-meta positive">+12% este mes</p>
+        </article>
+
+        <article class="metric-card">
+          <p class="metric-label">Egresos</p>
+          <p class="metric-value">$4,250</p>
+          <p class="metric-meta">51% de los ingresos</p>
+        </article>
+
+        <article class="metric-card">
+          <p class="metric-label">Ahorro</p>
+          <p class="metric-value">$4,150</p>
+          <p class="metric-meta positive">Meta al 83%</p>
+        </article>
+
+        <article class="metric-card">
+          <p class="metric-label">Tareas pendientes</p>
+          <p class="metric-value">7</p>
+          <p class="metric-meta warning">3 para esta semana</p>
+        </article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Finanzas</p>
+              <h3 class="panel-title">Ingresos vs Egresos</h3>
+            </div>
+            <button class="link-button" data-open="finance">Ver estadísticas</button>
+          </div>
+
+          <div class="bars-chart" aria-label="Gráfica de ingresos y egresos">
+            <div class="bar-row">
+              <span>Ene</span>
+              <div class="bar-track"><i style="width:76%"></i></div>
+              <strong>$6.8k</strong>
+            </div>
+            <div class="bar-row">
+              <span>Feb</span>
+              <div class="bar-track"><i style="width:62%"></i></div>
+              <strong>$5.5k</strong>
+            </div>
+            <div class="bar-row">
+              <span>Mar</span>
+              <div class="bar-track"><i style="width:92%"></i></div>
+              <strong>$8.4k</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Productividad</p>
+              <h3 class="panel-title">Tareas Pendientes</h3>
+            </div>
+            <button class="link-button" data-open="tasks">Ver todas</button>
+          </div>
+
+          <ul class="task-list compact">
+            <li><span class="task-dot high"></span> Terminar práctica de Internet <b>Hoy</b></li>
+            <li><span class="task-dot medium"></span> Revisar documentación <b>Mañana</b></li>
+            <li><span class="task-dot low"></span> Organizar archivos del repo <b>Vie</b></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Analítica</p>
+              <h3 class="panel-title">Actividad semanal</h3>
+            </div>
+          </div>
+
+          <div class="mini-columns" aria-label="Actividad de la semana">
+            <i style="height:38%"></i>
+            <i style="height:58%"></i>
+            <i style="height:46%"></i>
+            <i style="height:76%"></i>
+            <i style="height:88%"></i>
+            <i style="height:65%"></i>
+            <i style="height:52%"></i>
+          </div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Resumen</p>
+              <h3 class="panel-title">Estado general</h3>
+            </div>
+          </div>
+
+          <div class="status-grid">
+            <div><span>Disponibilidad</span><strong>98%</strong></div>
+            <div><span>Objetivos</span><strong>6/8</strong></div>
+            <div><span>Proyectos</span><strong>4</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="view-tasks" class="view-section">
+      <div class="section-heading">
+        <p class="eyebrow">Productividad</p>
+        <h2>Tareas</h2>
+        <p>Seguimiento simple de actividades pendientes.</p>
+      </div>
+
+      <article class="panel">
+        <ul class="task-list">
+          <li><span class="task-dot high"></span> Terminar práctica de Aplicaciones de Internet <b>Alta</b></li>
+          <li><span class="task-dot medium"></span> Actualizar README del repositorio <b>Media</b></li>
+          <li><span class="task-dot low"></span> Revisar estilos responsivos <b>Baja</b></li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="view-finance" class="view-section">
+      <div class="section-heading">
+        <p class="eyebrow">Control</p>
+        <h2>Finanzas</h2>
+        <p>Resumen mensual construido con datos de ejemplo.</p>
+      </div>
+      <div class="metric-grid">
+        <article class="metric-card"><p class="metric-label">Ingresos</p><p class="metric-value">$8,400</p></article>
+        <article class="metric-card"><p class="metric-label">Egresos</p><p class="metric-value">$4,250</p></article>
+        <article class="metric-card"><p class="metric-label">Balance</p><p class="metric-value">$4,150</p></article>
+      </div>
+    </section>
+
+    <section id="view-analytics" class="view-section">
+      <div class="section-heading">
+        <p class="eyebrow">Datos</p>
+        <h2>Analítica</h2>
+        <p>Indicadores generales del panel.</p>
+      </div>
+      <article class="panel">
+        <div class="status-grid">
+          <div><span>Sesiones</span><strong>24</strong></div>
+          <div><span>Acciones</span><strong>148</strong></div>
+          <div><span>Promedio diario</span><strong>6.2</strong></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="view-currency" class="view-section">
+      <div class="section-heading">
+        <p class="eyebrow">Mercados</p>
+        <h2>Divisas</h2>
+        <p>Ejemplo visual de tipos de cambio.</p>
+      </div>
+      <div class="metric-grid">
+        <article class="metric-card"><p class="metric-label">USD / MXN</p><p class="metric-value">18.42</p></article>
+        <article class="metric-card"><p class="metric-label">EUR / MXN</p><p class="metric-value">21.68</p></article>
+        <article class="metric-card"><p class="metric-label">GBP / MXN</p><p class="metric-value">24.86</p></article>
+      </div>
+    </section>
+
+    <section id="view-news" class="view-section">
+      <div class="section-heading">
+        <p class="eyebrow">Actualidad</p>
+        <h2>Noticias</h2>
+        <p>Tarjetas de ejemplo para futuras fuentes de información.</p>
+      </div>
+      <div class="dashboard-grid">
+        <article class="panel"><h3 class="panel-title">Tecnología</h3><p class="panel-copy">Espacio preparado para titulares y datos de una API.</p></article>
+        <article class="panel"><h3 class="panel-title">Mercados</h3><p class="panel-copy">Espacio preparado para información financiera.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
